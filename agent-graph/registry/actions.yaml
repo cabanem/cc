@@ -1,0 +1,26 @@
+# Adding a capability = adding an entry here. No graph changes, no redeploy
+# (that's Definition-of-Done item 4). Placeholders in prompts are filled from
+# each task's payload via str.format.
+actions:
+  summarize:
+    model: gemini-2.5-flash
+    prompt: |
+      Summarize the following in three sentences or fewer.
+
+      {text}
+
+  classify:
+    model: gemini-2.5-flash
+    prompt: |
+      Classify the following text as exactly one of: {labels}.
+      Respond with the label only.
+
+      {text}
+
+  extract_fields:
+    model: gemini-2.5-pro
+    prompt: |
+      Extract the fields {fields} from the document below.
+      Respond as compact JSON with those fields as keys.
+
+      {text}
